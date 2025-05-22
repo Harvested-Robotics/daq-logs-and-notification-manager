@@ -61,3 +61,14 @@ async fn main() {
         });
     }
 }
+
+async fn notify(payload: &str) {
+    if let Ok((ws_stream, _)) = tokio_tungstenite::connect_async("ws://127.0.0.1:9090").await {
+        let (mut tx, _) = ws_stream.split();
+        if let Err(e) = tx.send(Message::Text(payload.to_string())).await {
+            error!("Notify send failed: {}", e);
+        }
+    } else {
+        error!("Failed to connect to notifier");
+    }
+}

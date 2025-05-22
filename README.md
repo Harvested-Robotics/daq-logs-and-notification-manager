@@ -1,5 +1,4 @@
 # daq-logs-and-notification-manager
-# 🚀 Distributed Log Aggregation System in Rust
 
 A robust, concurrent log aggregation system built in Rust using asynchronous WebSockets. The system is composed of three log-generating services, an aggregator to collect and process logs, and a notifier that alerts on critical log entries using a **priority queue**.
 

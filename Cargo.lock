@@ -853,6 +853,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "service_b"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "futures",
+ "rand",
+ "tokio",
+ "tokio-tungstenite 0.20.1",
+ "tracing",
+ "tracing-subscriber",
+]
+
+[[package]]
 name = "sha-1"
 version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"

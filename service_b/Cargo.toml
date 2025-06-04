@@ -1,0 +1,15 @@
+[package]
+name = "service_b"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rand = "0.8"
+chrono = { version = "0.4", features = ["serde"] }
+tokio = { version = "1", features = ["full"] }
+tokio-tungstenite = "0.20"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+futures = "0.3"
+
+

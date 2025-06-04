@@ -1,7 +1,6 @@
 use futures::{SinkExt, StreamExt};
 use rand::seq::SliceRandom;
 use std::process;
-use std::thread;
 use tokio_tungstenite::connect_async;
 use tokio_tungstenite::tungstenite::protocol::Message;
 use tracing::info;
@@ -16,7 +15,7 @@ async fn main() {
 
         // Simulated data
         let level_names = ["INFO", "DEBUG", "ERROR", "CRITICAL"];
-        let process_name = "MainProcess";
+        let process_name = "service b";
         let thread_name = "MainThread";
         let thread_id = "threadId";
 

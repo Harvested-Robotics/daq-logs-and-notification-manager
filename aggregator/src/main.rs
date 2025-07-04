@@ -62,6 +62,17 @@ async fn main() {
                     match msg {
                         Ok(Message::Text(txt)) => {
                             info!("Received log: {}", txt);
+                            info!("Received log: {}", txt);
+
+                            let txt_clone = txt.clone();
+                            tokio::spawn(async move {
+                                let client = reqwest::Client::new();
+                                let _ = client
+                                    .post("http://localhost:3000/log")
+                                    .json(&serde_json::json!({ "message": txt_clone }))
+                                    .send()
+                                    .await;
+                            });
                             let maybe_code = try_extract_code(&txt);
                             let is_critical = maybe_code
                                 .map_or(false, |code| [400, 401, 402, 403, 404].contains(&code));

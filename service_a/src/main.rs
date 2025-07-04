@@ -21,7 +21,7 @@ async fn main() {
         let thread_id = "threadId";
 
         loop {
-            let codes: [i32; 8] = [100, 200, 404, 500, 401,402, 403, 400];
+            let codes: [i32; 16] = [100, 200, 404, 500, 401,402, 403, 400, 101, 102, 103, 104, 105, 106, 107, 108];
             let code: i32 = *codes.choose(&mut rand::thread_rng()).unwrap();
             let level: &&str = level_names.choose(&mut rand::thread_rng()).unwrap();
             let timestamp: chrono::DateTime<chrono::Utc> = chrono::Utc::now();
@@ -43,7 +43,7 @@ async fn main() {
             );
 
             tx.send(Message::Text(message)).await.unwrap();
-            tokio::time::sleep(tokio::time::Duration::from_millis(10)).await;
+            tokio::time::sleep(tokio::time::Duration::from_secs(2)).await;
         }
     }
 }

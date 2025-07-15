@@ -43,7 +43,7 @@ async fn main() {
             );
 
             tx.send(Message::Text(message)).await.unwrap();
-            tokio::time::sleep(tokio::time::Duration::from_secs(2)).await;
+            tokio::time::sleep(tokio::time::Duration::from_millis(10)).await;
         }
     }
 }
